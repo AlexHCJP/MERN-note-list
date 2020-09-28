@@ -1,0 +1,29 @@
+.note{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgb(238, 238, 118);
+    background-color: rgb(250, 250, 132);
+    box-shadow: 0 0 3px black;
+    margin: 5px;
+    word-wrap: break-word;
+}
+.header{
+    display: flex;
+}
+.header-title{
+    width: 90%;
+    word-wrap: break-word;
+}
+.header-btn{
+    margin-left: auto;
+}
+.btn-del{
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.title, .description {
+    padding: 5px;
+    margin: 0;
+}

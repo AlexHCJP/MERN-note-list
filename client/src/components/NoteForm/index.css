@@ -1,0 +1,24 @@
+.form{
+    display: flex;
+    justify-content: center;
+}
+.note-form{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgb(238, 238, 118);
+    box-shadow: 0 0 3px black;
+}
+.titleF, .descriptionF {
+    width: 300px;
+    border: none;
+    outline: none;
+    background-color: rgb(250, 250, 132);
+    padding: 5px;
+}
+.titleF{
+    height: 25px;
+}
+.descriptionF {
+    height: 150px;
+    resize: none;
+}
