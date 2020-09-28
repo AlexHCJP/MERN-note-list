@@ -37,7 +37,16 @@ const NoteActions = {
         ).catch(err =>
             console.error(err)
         );
-    }
+    },
+
+    updateNote(note) {
+        NoteApi.updateNote(note).then(() =>{
+            this.loadNotes()
+        }).catch(err =>
+            console.error(err)
+        );
+    },
+
 };
 
 export default NoteActions;

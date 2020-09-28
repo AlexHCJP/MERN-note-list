@@ -12,5 +12,9 @@ export default {
 
     deleteNote(noteId) {
         return Axios.delete(`${apiPrefix}/note/${noteId}`);
+    },
+
+    updateNote(data) {
+        return Axios.put(`${apiPrefix}/note/${data.id}`, data);
     }
 }

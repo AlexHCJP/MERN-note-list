@@ -30,7 +30,7 @@ app.delete('/note/:id', (req, res) => {
 });
 
 app.put('/note/:id', (req, res) => {
-    noteController.updateNote(req.params.id).then(data => res.send(data));
+    noteController.updateNote(req.params.id, req.body).then(data => res.send(data));
 });
 
 app.listen(port, function() {

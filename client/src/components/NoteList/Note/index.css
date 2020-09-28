@@ -11,11 +11,11 @@
     display: flex;
 }
 .header-title{
-    width: 90%;
+    width: 70%;
     word-wrap: break-word;
 }
 .header-btn{
-    margin-left: auto;
+    display: flex;
 }
 .btn-del{
     background: none;

@@ -1,9 +1,9 @@
 import React from 'react';
-import NoteList from './components/NoteList';
-import NoteForm from './components/NoteForm';
+import NoteList from './NoteList';
+import NoteForm from './NoteForm';
 
-import NoteStore from './stores/NoteStore';
-import NoteAction from './actions/NoteAction';
+import NoteStore from '../stores/NoteStore';
+import NoteAction from '../actions/NoteAction';
 
 
 
@@ -12,18 +12,22 @@ class App extends React.Component {
     super()
     this.state = {
       isLoading: NoteStore.isLoading(),
-      notes: NoteStore.getNotes()
+      notes: NoteStore.getNotes(),
+      updateNote: null
     }
     
     this._onChange = this._onChange.bind(this)
     this.handleNoteDelete = this.handleNoteDelete.bind(this)
     this.handleNoteAdd = this.handleNoteAdd.bind(this)
+    this.handleNoteUpdate = this.handleNoteUpdate.bind(this)
+    this.handleNoteEdit = this.handleNoteEdit.bind(this)
   }
   
   _onChange() {
     this.setState({
       isLoading: NoteStore.isLoading(),
-      notes: NoteStore.getNotes()
+      notes: NoteStore.getNotes(),
+      updateNote: null
     });
   }
   
@@ -43,17 +47,26 @@ class App extends React.Component {
     NoteAction.deleteNote(id);
   }
 
+  handleNoteUpdate(data) {
+    NoteAction.updateNote(data);
+  }
+
+  handleNoteEdit(note) {
+    this.setState({updateNote: note})
+  }
+
   handleNoteAdd(noteData) {
     NoteAction.createNote(noteData);
+    this.setState({updateNote: null})
   }
 
 
   render(){
-    const {notes} = this.state
+    const {notes, updateNote} = this.state
     return (
       <div className="App">
-        <NoteForm NoteAdd={this.handleNoteAdd}/>
-        <NoteList NoteDel={this.handleNoteDelete} notes={notes}/>
+        <NoteForm NoteAdd={this.handleNoteAdd} NoteUpdate={this.handleNoteUpdate} note={updateNote}/>
+        <NoteList NoteDel={this.handleNoteDelete} NoteEdit={this.handleNoteEdit} notes={notes}/>
       </div>
     );
   }

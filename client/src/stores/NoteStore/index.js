@@ -23,7 +23,6 @@ const TasksStore = Object.assign({}, EventEmitter.prototype, {
     },
 
     getNotes() {
-        console.log(_notes)
         return _notes;
     },
 
